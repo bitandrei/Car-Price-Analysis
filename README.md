@@ -15,11 +15,13 @@ I downloaded the dataset from [Kaggle](https://www.kaggle.com/datasets/hellbuoy/
 
 ## Business Requirements
 
-The goal of this project is to help a car company understand what affects the price of a car. They want to know things like:
+The goal is to help a car company understand:
 
-- Does more horsepower mean a higher price?
-- Which brands give better value for the money?
-- Does the type of car (like SUV or sedan) change how much it costs?
+- What features affect car prices
+- Which car types are cheaper or more expensive
+- Which brands give good value for money (performance vs. cost)
+
+This can help the company make better decisions about pricing and design.
 
 As a student, I’m using this project to practice cleaning data and finding answers to simple questions using Python, Pandas, and NumPy.
 
@@ -40,33 +42,76 @@ All of this will be done using simple Pandas and NumPy functions — no machine 
 
 ## Project Plan
 
-Since this is my first data analysis project, I broke it into a few simple steps:
+I followed this plan:
 
-1. **Explore the dataset**  
-   ➤ Load the CSV file and look at the data with `.head()`, `.info()`, and `.describe()`.
+1. **ETL**
 
-2. **Clean the data**  
-   ➤ I fixed text formatting, dropped unnecessary columns, and removed outliers.
+   - Loaded the dataset
+   - Cleaned column names and values
+   - Removed outliers
+   - Created new columns (`carbrand`, `price_per_hp`)
+   - Saved cleaned data
 
-3. **Feature engineering**  
-   ➤ I created new columns like `price_per_hp` and `power_to_weight` to help with analysis.
+2. **Data Analysis**
 
-4. **Save the cleaned data**  
-   ➤ I saved a clean version of the dataset to use later.
+   - Grouped data by brand, car body, fuel type
+   - Calculated average prices and MPG
 
-5. **Next steps**  
-   ➤ I plan to group data, find patterns, and eventually create some tables or simple charts (only with Pandas).
+3. **Visualisations**
+
+   - Created charts using Matplotlib, Seaborn, and Plotly
+
+4. **Documentation**
+   - Wrote this README and added comments to my notebook
 
 ## The rationale to map the business requirements to the Data Visualisations
 
+| Business Question                      | Visualisation Used                       |
+| -------------------------------------- | ---------------------------------------- |
+| Which brands are most expensive?       | Bar chart (avg. price by brand)          |
+| Which brands give best value?          | Bar chart (price per horsepower)         |
+| Does car type affect price/efficiency? | Bar charts (city MPG & price by carbody) |
+| Does more power = higher price?        | Scatter plot (horsepower vs price)       |
+
 ## Analysis techniques used
+
+- Used `.groupby()` and `.mean()` to compare brands and car types
+- Created new columns like `price_per_hp` and `power_to_weight`
+- Visualised results with:
+  - **Matplotlib** (basic plots)
+  - **Seaborn** (grouped bar charts)
+  - **Plotly** (interactive scatter plots)
 
 ## Ethical considerations
 
+- The data is public and contains no personal information
+- No machine learning or predictions were used
+- This project was done for learning purposes only
+
 ## Unfixed Bugs
+
+- Some Matplotlib and Seaborn plots saved as blank images in VSCode
+- Fixed this by switching to Plotly or using `fig.savefig()` correctly
 
 ## Development Roadmap
 
+If I continue this project, I would like to:
+
+- Add more data (like car year or location)
+
 ## Main Data Analysis Libraries
 
+- **Pandas** – for loading, cleaning, and analysing the data
+- **NumPy** – for basic math and logic
+- **Matplotlib** – for basic plots
+- **Seaborn** – for nicer grouped charts
+- **Plotly** – for interactive plots
+
 ## Credits
+
+- Dataset: [Kaggle - Car Price Prediction](https://www.kaggle.com/datasets/hellbuoy/car-price-prediction)
+- Help: Project supported by class, internet guides, and [ChatGPT]
+- Inspiring: Alex the Analyst: [Pandas for Beginners](https://www.youtube.com/playlist?list=PLUaB-1hjhk8GZOuylZqLz-Qt9RIdZZMBE)
+- Markdown: (https://www.markdownguide.org/basic-syntax/)
+- Pandas: [CheatSheet](https://www.datacamp.com/cheat-sheet/pandas-cheat-sheet-for-data-science-in-python)
+- Plotly: [CheatSheet](https://www.datacamp.com/cheat-sheet/plotly-express-cheat-sheet)
